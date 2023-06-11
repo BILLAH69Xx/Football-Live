@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Inexic Studio Server</title>
+  <style>
+    /* Styles for the form button */
+    button {
+      border-radius: 10px;
+      padding: 6px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    
+    button:hover {
+      background-color: #45a049;
+    }
+    
+    /* Styles for the watermark */
+    .watermark {
+      position: fixed;
+      bottom: 10px;
+      right: 10px;
+      font-size: 18px;
+      font-weight: bold;
+      color: rgba(0, 0, 0, 0.3);
+    }
+  </style>
+</head>
+<body>
+  <h1>Android IP TV File</h1>
+  
+  <form id="passkeyForm">
+    <label for="passkey">Enter Password:</label>
+    <input type="password" id="passkey" name="passkey">
+    <button type="submit">Submit</button>
+  </form>
+  
+  <a id="downloadLink" href="https://file.io/r4AloaQ4kUpn" style="display: none;">Download</a>
+  
+  <!-- Watermark with company name -->
+  <div class="watermark">INEXIC STUDIO</div>
+
+  <script>
+    var passkeys = ["7QLJDI5R", "3EY3NEE8", "0REZHD35", "CX6XFUFB", "5I6ZGXBH"];
+
+    document.getElementById("passkeyForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+      
+      var enteredPasskey = document.getElementById("passkey").value;
+
+      if (passkeys.includes(enteredPasskey)) {
+        passkeys = passkeys.filter(function(passkey) {
+          return passkey !== enteredPasskey;
+        });
+
+        document.getElementById("downloadLink").href = "path/to/download/file";
+        document.getElementById("downloadLink").style.display = "block";
+        alert("Passkey accepted. You can now download the file.");
+      } else {
+        alert("Invalid passkey or already used.");
+      }
+    });
+  </script>
+</body>
+</html>
